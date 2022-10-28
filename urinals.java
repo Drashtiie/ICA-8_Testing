@@ -1,6 +1,10 @@
 
 //Author - Drashti Patel
 
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
+
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Scanner;
@@ -9,7 +13,14 @@ public class urinals {
     public static String getString(){
         return " ";
     }
-
+    Boolean goodString( String s ) {  // checks to see if valid string
+        for(int i=0; i<s.length();i++){
+            if (s.charAt(i) != '0' && s.charAt(i)!='1'){
+                return false;
+            }
+        }
+        return true;
+    }
     int countUrinals(String a){
 //        int i = a.length();
         int j = 0;
@@ -20,6 +31,9 @@ public class urinals {
         String d = b.concat(a);
         String e1 = d.concat(b);
         int i = e1.length();
+        if(!goodString(e1)){
+            return -1;
+        }
 
 
         while(j<i-1) {
@@ -115,11 +129,20 @@ public class urinals {
         System.out.println("A");
     }
     public static void main(String args[]) throws IOException {
-        urinals b = new urinals();
-        System.out.println("Main");
+//        urinals b = new urinals();
+//        System.out.println("Main");
 //        String a = getString();
-        System.out.println(b.getString());
-        b.openFile();
+//        System.out.println(b.getString());
+//        b.openFile();
 
+        Result result = JUnitCore.runClasses(urinalsTest.class);
+
+        for (Failure fail : result.getFailures()) {
+            System.out.println(fail.toString());
+        }
+
+        System.out.println(result.wasSuccessful());
     }
+
+
 }
