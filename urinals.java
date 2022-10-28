@@ -94,10 +94,10 @@ public class urinals {
         this.ansarr.add(getString(ans));
         return ans;
     }
-    void openFile() throws IOException {
+    void openFile( String p) throws IOException {
         Path fileName
-                = Path.of("D:\\ICA-8_Testing\\urinal.dat");
-        try {
+                = Path.of(p);
+//        try {
             Scanner sc = new Scanner(fileName);
             int i =0;
             while (sc.hasNext()) {
@@ -105,10 +105,11 @@ public class urinals {
                 System.out.println(countUrinals(b)+ " " + b );
                 }
             sc.close();
-        }
-        catch (Exception e) {
-            System.out.println("File doesnot exists");
-        }
+//        }
+//        catch (Exception e) {
+//            System.out.println("File doesnot exists");
+//            throws
+//        }
         printanstofile();
     }
     public static int isFileExists(File file) {
@@ -118,6 +119,18 @@ public class urinals {
         }
         else {
             System.out.println("File doesn't exist");
+            return 0;
+        }
+    }
+
+    public static int isFileEmpty(File file) {
+       System.out.println(file.length() + "fl");
+        if (file.length()==0) {
+            System.out.println("File is empty!!");
+            return 1;
+        }
+        else {
+            System.out.println("File is not empty");
             return 0;
         }
     }
@@ -147,7 +160,7 @@ public class urinals {
     }
     public static void main(String args[]) throws IOException {
         urinals b = new urinals();
-        b.openFile();
+        b.openFile("D:\\ICA-8_Testing\\urinal.dat");
         Result result = JUnitCore.runClasses(urinalsTest.class);
 
         for (Failure fail : result.getFailures()) {

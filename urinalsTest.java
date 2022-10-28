@@ -3,6 +3,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.io.File;
+import java.io.IOException;
 
 import static org.junit.Assert.*;
 
@@ -35,9 +36,30 @@ public class urinalsTest {
     }
     @Test
     public void isFileExistsTest() {
+
+        System.out.println("====== Drashti Patel == TEST TWO  EXECUTED =======");
         assertEquals(1, t.isFileExists(new File("D:\\ICA-8_Testing\\urinal.dat")));
 
         assertEquals(0, t.isFileExists(new File("D:\\ICA-8_Testing\\urinal1.dat")));
+    }
+
+    @Test
+    public void isFileEmptyTest() {
+
+        System.out.println("====== Drashti Patel == TEST THREE  EXECUTED =======");
+//        assertEquals(0, t.isFileEmpty(new File("src/main/java/urinals.dat")));
+
+        assertEquals(1, t.isFileEmpty(new File("src/main/java/urinals2.dat")));
+    }
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
+
+    @Test
+    public void openFileTest() throws IOException {
+
+        System.out.println("====== Drashti Patel == TEST FOUR  EXECUTED =======");
+        expectedException.expect(IOException.class);
+        t.openFile("D:\\ICA-8_Testing\\urinal7.dat");
     }
     @Test
     public void checkGoodString(){
