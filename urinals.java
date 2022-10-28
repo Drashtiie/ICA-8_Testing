@@ -122,7 +122,16 @@ public class urinals {
             return 0;
         }
     }
-
+    public static int isDuplicate(File file) {
+        if (file.isFile()) {
+            System.out.println("File is duplicate!!");
+            return 1;
+        }
+        else {
+            System.out.println("File is not duplicate");
+            return 0;
+        }
+    }
     public static int isFileEmpty(File file) {
        System.out.println(file.length() + "fl");
         if (file.length()==0) {
