@@ -62,6 +62,16 @@ public class urinalsTest {
         t.openFile("D:\\ICA-8_Testing\\urinal7.dat");
     }
     @Test
+    public void badFileNameTest() throws IOException {
+
+        System.out.println("====== Drashti Patel == TEST Seven  EXECUTED =======");
+        assertEquals(1, t.badFileName(new File("D:\\ICA-8_Testing\\rule2.txt")));
+
+        assertEquals(0, t.badFileName(new File("D:\\ICA-8_Testing\\rule102.dat")));
+
+
+    }
+    @Test
     public void duplicateFileTest() throws IOException {
 
         System.out.println("====== Drashti Patel == TEST Five  EXECUTED =======");
@@ -73,8 +83,6 @@ public class urinalsTest {
     public void checkGoodString(){
         System.out.println("====== Drashti Patel == TEST TWO  EXECUTED =======");
 
-//
-        System.out.println("====== Drashti Patel == TEST THREE EXECUTED =======");
 
         assertEquals("0000 is good string",true, t.goodString("0000"));
         assertEquals("Drashti is not good string",false, t.goodString("Drashti"));

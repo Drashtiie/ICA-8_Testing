@@ -132,6 +132,16 @@ public class urinals {
             return 0;
         }
     }
+    public static int badFileName(File file) {
+        if (isDuplicate(file) == 1) {
+            System.out.println("Filename is bad!!");
+            return 1;
+        }
+        else {
+            System.out.println("Filename is not bad");
+            return 0;
+        }
+    }
     public static int isFileEmpty(File file) {
        System.out.println(file.length() + "fl");
         if (file.length()==0) {
